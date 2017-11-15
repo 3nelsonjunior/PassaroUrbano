@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http'
+import { RouterModule } from '@angular/router'
+
+//importando as rotas do sistema
+import { ROUTES } from './app.router';
 
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
@@ -20,7 +24,9 @@ import { DiversaoComponent } from './diversao/diversao.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    //estabelecendo rotas globais(child é interna, tpo projeto SSO)
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
