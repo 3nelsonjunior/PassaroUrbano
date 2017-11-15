@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     //objeto ofertas do tipo Array[Ofertas] chamando o 
-      //Serviço Ofertas para utilizar função getOfertas 
-      //para buscar as ofertas
+    //Serviço Ofertas para utilizar função getOfertas 
+    //para buscar as ofertas
     //this.ofertas = this.ofertasService.getOfertas();
 
     //chama a classe da promessa(promise)
@@ -28,10 +28,13 @@ export class HomeComponent implements OnInit {
       //(.then)executa ação qdo promessa for resolvida(resolve)
       //no recebe Array de Ofertas que é retornado do service
       .then(
-        (ofertas: Oferta[]) => { this.ofertas = ofertas, console.log(this.ofertas)},
-        //recebendo parametro erro - executando algo(log)
-        (param: any) => { console.log(param) }
-    )
+      (ofertas: Oferta[]) => {
+        this.ofertas = ofertas, console.log(this.ofertas)
+      })
+      //recebendo parametro erro - executando algo(log)
+      .catch((param: any) => {
+        console.log(param)
+      })
   }
 
 }
