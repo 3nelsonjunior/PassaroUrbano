@@ -63,12 +63,17 @@ export class OfertasService {
         return this.ofertas;
     }
 
-    //retorna uma promise(recurso da linuagem typescript)
+    //retorna uma promise(recurso da linguagem typescript)
     public getOfertas2(): Promise<Oferta[]> {
         //espera que a promise seja resolvida ou rejeitada
         return new Promise((resolve, reject) => {
             //algum tipo de processamento, que ao finalizar, chama a funcção resolve ou reject
-            resolve (this.ofertas)
+            let deu_certo = false //false para forçar erro para teste
+            if(deu_certo) {
+                resolve (this.ofertas)
+            } else {
+                reject ({codigo_erro: 404, mensagem_erro: 'Servidor não encontrado =['})
+            }
         })
     }
 

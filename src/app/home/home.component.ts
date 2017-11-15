@@ -27,9 +27,11 @@ export class HomeComponent implements OnInit {
     this.ofertasService.getOfertas2()
       //(.then)executa ação qdo promessa for resolvida(resolve)
       //no recebe Array de Ofertas que é retornado do service
-      .then((ofertas: Oferta[]) => {
-        this.ofertas = ofertas
-      })
+      .then(
+        (ofertas: Oferta[]) => { this.ofertas = ofertas, console.log(this.ofertas)},
+        //recebendo parametro erro - executando algo(log)
+        (param: any) => { console.log(param) }
+    )
   }
 
 }
