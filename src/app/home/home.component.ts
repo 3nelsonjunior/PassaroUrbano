@@ -18,9 +18,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    //objeto ofertas do tipo Array[Ofertas] chamando o 
+      //Serviço Ofertas para utilizar função getOfertas 
+      //para buscar as ofertas
     this.ofertas = this.ofertasService.getOfertas();
-    console.log(this.ofertas)
   }
 
 }
