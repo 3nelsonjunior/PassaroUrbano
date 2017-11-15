@@ -86,6 +86,14 @@ export class OfertasService {
         .then((ofertas: Oferta[]) => {
             //fazer outr tratativa
             console.log('THEN 2')
+            return new Promise((resolve2, reject2) => {
+                setTimeout(() => {resolve2(ofertas)}, 3000)
+            })
+        })
+        //de modo assincrono para aplicação, continua aplicação via .then(de maneira sincrona entre os then's)
+        .then((ofertas: Oferta[]) => {
+            //fazer outr tratativa
+            console.log('THEN 3 executado após 3 seundos, pq estava aguardando uma promise ser resolvida')
             return ofertas
         })
     }
