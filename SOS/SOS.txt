@@ -1,0 +1,53 @@
+................................ instalar o node js
+node -v ........................ verificar versão node js
+npm -v ......................... verificar versão npm - (já instala junto com node)
+npm install -g typescript ...... instalar typescript
+tsc -v ......................... verificar versão typescript
+................................ instalar o visual studio code
+code -v ........................ verificar versão code
+npm install -g angular-cli ..... instalar o angular cli(command line interface)
+npm install -g @angular/cli .... NOVO CÓDIGO PARA INSTALAR O ANGLAR CLI
+ng -v .......................... verificar versão angular cli
+
+ng new nome_projeto ............ cria uma nova pasta com novo projeto
+ng server ...................... inciiar o servidor
+
+Módulo ......................... Pequenos pedaços de softwares que se comunicam(Exsite um módulo principal)
+ng g module nome_modulo ........ criar um módulo no angular
+
+criando compoonentes(juntamente com a pasta)
+ng generate component nome_componente ... criando componente via cli
+ng g c nome_component --spec=false ...... criando componente via cli (modo diferente - tags reduzidas, sem o spec do teste)
+
+
+bootstrasp
+npm install bootstrap@4.0.0-beta ..... baixar para o projeto como dependencia(dentro da raiz)
+configurando bootstrap no Code
+Adicionar a linha abaixo em "angular-cli.json" na tag styles
+"../node_modules/bootstrap/dist/css/bootstrap.min.css", // ../ devido a voltar uma pasta do root: src
+
+jquery
+npm install jquery --save ..... instalar o jquery
+
+Tether
+npm install tether --save ..... instalar o Tether
+
+PrimeNG
+npm install primeng --save ..... instalar PrimeNG
+
+Data Binding
+Comunicação entre template HTML e o seu Componente ou mesmo entre Components. Pode-se passar informações da sua classe para serem mostradas no template, ou passar informações do template para serem executadas na classe do componente.
+interpolation ........... (interpolação) qdo queremos passar dados da classe componente para o template componente -> template 
+property binding ........ qdo queremos passar informações do componente para alguma propriedade de lag do template
+event binding ........... qdo queremos passar dados do template para a classe do componente(usuados para eventos - click na ......................... tela)
+two-way data binding .... junta o proprerty binding e envent binding, atualiza o template e a classe do componente a qualquer ......................... momento que a variavel declarada for mudada. 
+
+
+CICLO DE VIDA COMPONENTES ANGULAR(Exemplos)
+ngOnChanges ........ disparado logo após o construtror, com ele pode-se capturar as mudanças dos componentes antes mesmo de sua .................... inicialização, pode-se trabalhar alteração enviadas pelo método decoretorinput
+ngOnInit ........... Componente iniciado(e "decorado" comvariavesis "inputadas"), a partir daí pode-se tomar ação como .................... consultar webservices para recuperar dados(para preencher registros na tela por exemplo)
+ngOnDestrioy ....... chamado no momento que o componente deixa de ser utilizado na aplicação(exemplo qdo num if elemento fica .................... invisivel na aplicação) 
+
+ATUALIZANDO ANGULAR PARA A VERSÃO 4(Executar o comando abaixo na pasta do projeto)
+npm install @angular/common@latest @angular/compiler@latest @angular/compiler-cli@latest @angular/core@latest @angular/forms@latest @angular/http@latest @angular/platform-browser@latest @angular/platform-browser-dynamic@latest @angular/platform-server@latest @angular/router@latest @angular/animations@latest typescript@latest --save
+

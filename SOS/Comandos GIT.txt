@@ -1,0 +1,99 @@
+Sobre...
+
+Git -> Serviço de web compartilhado para projetos que utilizam Git para versionamento
+Github -> Serviço de controle de versão(diferencia dos outros, pois é como se tirasse o snapshot das versões atuais)
+
+Ciclo de vida dos arquivos no Git
+untracked -> criado, mas ainda não adicionado ao Git(não visto ou  não git add)
+unmodified -> arquivo criado(não visto ou não git add) e sem modificação
+modified-> arquivo criado, porém modificado(necessita de um git add para ser commitado) 
+staged -> após "git add" ou modificação, pronto para ser "commitado"
+
+================================================================================================================
+Comandos git e terminal
+=================================================================================================================
+
+git config --global user.name "nome_usuario" ................. definir nome do usuario
+git config --global user.email "nome_email@email.com" ........ definir email do usuario
+git config --global core.editor "subl -n -w" ......................... definir editor principal (ex.: sublime)
+git config --global core.editor "'C:/Program Files/Sublime Text 2/sublime_text.exe' -n -w" ..... definir editor principal (ex.: sublime), caso não foi adicionado as suas variáveis de ambiente
+git config --global core.editor vim .......................... definir editor principal (ex.: vim), padrão, abre no git mesmo
+git config user.name .............................. ex.: se quiser saber user.name
+git config user.email ............................. ex.: se quiser saber user.email
+git config --list ................................. ex.: se quiser aber todas as informações
+
+mkdir nome_pasta .................................. criar pasta
+cd nome_pasta ..................................... entrar na pasta
+cd .. ............................................. voltar pasta anterior
+
+git init .......................................... inicializa repositorio e enxergar todas as mudanças no projeto
+ls -la ............................................ lista diretórios
+cd .git/ .......................................... abrir diretório git
+ls ................................................ listar arquivos do diretório git
+git status ........................................ reporta como esta o repositório no momento
+subl nome_arquivo.extensão ........................ criar um arquivo no sublime
+vim nome_arquivo.extensão ......................... criar um arquivo no vim(editor padrão)
+i ................................................. dentro do arquivo.md pressionar "i" para inserção\edição
+ESC ............................................... apertar tecla ESC para sair, depois...
+:wq ............................................... para fechar o arquivo.md
+more nome_Arquivo.extensão ........................ imprimi na tela do prompt o que tiver escrito no arquivo de texto
+git add nome_arquivo.extensão ..................... adicionar arquivo no git - deixando pronto para "commitar"
+git commit -m "Comentário do que foi feito" ....... "commitando" uma versão
+git log ........................................... mostra logs com data, identificação, mensagem e autor do commit
+git log --author="nome_autor" ..................... mostra logs de autor especifico
+git shortlog ...................................... logs quais autores, qtos commits fizeram e quais commits foram(em ordem alfabetica)
+git shortlog -sn .................................. logs de qtd de commits por pessoa
+git log --graph ................................... logs em forma grafica do que esta acontecendo com versões e branchs
+git log -1 ........................................ logs do ultimo commit
+git show nome_da_hash_ou_commit ................... log pelo numero da hash/commit(cadeia de caracteres)
+git diff .......................................... mostra a edição realizada(antes de "commitar")
+git diff --name-only .............................. busca o nome do arquivo que foi modificado
+git checkout nome_arquivo.extensão ................ reset em modificação, retorna status antes edição(só funciona se não tiver adicionado)
+git reset HEAD nome_arquivo.extensão .............. remove arquivo do status pós add(staged), após isto é posivel restar/apagar edição
+git commit -am "Comentário do que foi feito" ...... adiciona e "commita"
+git reset --soft nome_commit_hash_anterior ........ apaga commit's anteriores ao especificado, mas mantem como staged pronto para "commitar"
+git reset --mixed ................................. apaga commit's anteriores ao especificado, mas mantem como modified pronto para "add"
+git reset --hard .................................. apaga commit's anteriores ao especificado, não tem como recuperar, pois apaga tudo.
+
+git remote add origin https://github.com/3nelsonjunior/github-course.git ............ ligar aum repositorio remoto(no caso no endereço especificado após origin)
+git remote ....................................................2...................... verificar se exte repositório remote
+git remote -v ....................................................................... mais informações do git remote(endereço)
+git push -u origin master ........................................................... [1ª vez]envia todos arquivos ja criados para repositorio remote(do master/local para o github)
+git push origin master .............................................................. enviar alteração para github (origin nome padrão do remote e master nome branch padrão)
+git clone git@github.com:3nelsonjunior/github-course.git github-course-clone ........ cria um clone de um repoitorio do github(precisa do endereço nome_nova_pasta_clone) 
+
+BAIXANDO VERSÃO REPOSITORIO
+git clone caminho_baixar ............... clonar repositorio
+........................................ acessar a pasta
+git pull ............................... download dos ultimos commits
+git checkout branch_com_projeto ........ acessar a branch do projeto
+
+Atualizando a branch develop
+git commit -m "" ................. commit na branch_atual
+git checkout develop ............. mudar para develop
+git pull ......................... para atualizar a develop
+git checkout branch_atual ........ volta pra branch atual
+git merge develop ................ merge para lançar a versão branch atual para da develop
+.................................. verificar se hou conflitos
+git checkout develop ............. mudar para develop
+git merge branch_atual ........... atualizar develop, de acordo com sua mudanças na branch atual
+git push ......................... subir para o repositório remoto(TFS/ github e etc)
+
+Branch
+É um ponteiro móvel que leva a um commit(ramificação)
+git checkout -b nome_branch ...................... criar novo branch
+git branch ....................................... mostra quais branchs exitentes e qual esta utilizando no momento
+git checkout nome_branch ......................... acessar um branch
+git branch -D testing ............................ deletar uma branch
+
+Merge
+Junta 2 ou mais branchs, criando a master. Porém as outras branchs continuam ativas.
+git merge nome_branch ............................ merge juntar nome_branch ao atual
+
+Rebase
+Aplica modificação no topo da lista de ramificação
+git rebase nome_branch ........................... rebase, aplica branch no topo da lista do branch requisitado
+
+=================================================================================================================
+
+
