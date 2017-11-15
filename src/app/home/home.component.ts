@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
       //no recebe Array de Ofertas que é retornado do service
       .then(
       (ofertas: Oferta[]) => {
+        console.log('resolvida após 3 segundos')
         this.ofertas = ofertas, console.log(this.ofertas)
       })
       //recebendo parametro erro - executando algo(log)

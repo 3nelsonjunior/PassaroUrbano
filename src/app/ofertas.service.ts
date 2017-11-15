@@ -68,12 +68,25 @@ export class OfertasService {
         //espera que a promise seja resolvida ou rejeitada
         return new Promise((resolve, reject) => {
             //algum tipo de processamento, que ao finalizar, chama a funcção resolve ou reject
-            let deu_certo = false //false para forçar erro para teste
+            let deu_certo = true //'false' para forçar erro para teste
             if(deu_certo) {
-                resolve (this.ofertas)
+                //encapsulando o resolve para executar o timeout(forçar erro)
+                setTimeout(() => resolve (this.ofertas), 3000)
             } else {
                 reject ({codigo_erro: 404, mensagem_erro: 'Servidor não encontrado =[=[=['})
             }
+        })
+        //de modo assincrono para aplicação, continua aplicação via .then(de maneira sincrona entre os then's)
+        .then((ofertas: Oferta[]) => {
+            //fazer tratativa
+            console.log('THEN 1')
+            return ofertas
+        })
+        //de modo assincrono para aplicação, continua aplicação via .then(de maneira sincrona entre os then's)
+        .then((ofertas: Oferta[]) => {
+            //fazer outr tratativa
+            console.log('THEN 2')
+            return ofertas
         })
     }
 
