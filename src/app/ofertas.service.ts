@@ -1,5 +1,6 @@
 import { Oferta } from './shared/oferta.model';
 
+
 export class OfertasService {
 
     //Preenche Array de Oferta
@@ -60,6 +61,15 @@ export class OfertasService {
     //retorna um array de Oferta
     public getOfertas(): Oferta[] {
         return this.ofertas;
+    }
+
+    //retorna uma promise(recurso da linuagem typescript)
+    public getOfertas2(): Promise<Oferta[]> {
+        //espera que a promise seja resolvida ou rejeitada
+        return new Promise((resolve, reject) => {
+            //algum tipo de processamento, que ao finalizar, chama a funcção resolve ou reject
+            resolve (this.ofertas)
+        })
     }
 
 }
